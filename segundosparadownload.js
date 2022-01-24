@@ -1,7 +1,7 @@
 var downloadButton = document.getElementById("download");
 var counter = 10;
 var newElement = document.createElement("p");
-  newElement.innerHTML = "<h1><b>ATENÇÃO! PARA LIBERAR O LINK, DÊ PLAY NO VÍDEO</b></h1>";
+  newElement.innerHTML = "<h1><b>ATENÇÃO! PARA LIBERAR O LINK DE DOWNLOAD, DÊ PLAY NO VÍDEO</b></h1>";
 var id;
 
 downloadButton.parentNode.replaceChild(newElement, downloadButton);
