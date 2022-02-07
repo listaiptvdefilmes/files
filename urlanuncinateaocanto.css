@@ -1,0 +1,19 @@
+.urlanunciante{
+	position:absolute;
+  	color: rgb(255, 255, 255);
+  	padding: 5px 10px;
+  	text-align: right;
+  	background: rgba(255, 24, 24);
+  	right:1px;
+    top: 1px;
+    border: 1px solid White;
+  	width: 80px;
+  	height: 20px;
+  	font-size: 11px;
+  	font-weight: 700;
+  	z-index: 1 !important;
+    cursor: pointer;
+}
+.hide2{
+  display:none;
+}
