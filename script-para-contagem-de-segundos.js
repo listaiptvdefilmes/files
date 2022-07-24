@@ -1,5 +1,5 @@
 var downloadButton = document.getElementById(&quot;download&quot;);
-var counter = 10;
+var counter = 0;
 var newElement = document.createElement(&quot;p&quot;);
   newElement.innerHTML = &quot;&lt;h1&gt;&lt;b&gt;&lt;/b&gt;&lt;/h1&gt;&quot;;
 var id;
