@@ -1,1 +1,37 @@
-var _0x161e=["\x2E\x70\x6C\x61\x79\x61\x64\x73","\x76\x69\x64\x65\x6F\x5F\x31","\x23\x76\x69\x64\x65\x6F\x5F\x31","\x61\x70\x70\x65\x6E\x64\x54\x6F","\x2E\x6D\x6F\x76\x65\x54\x6F\x56\x69\x64\x65\x6F\x4A\x73","\x70\x6C\x61\x79","\x70\x6C\x61\x79\x61\x64\x73","\x68\x61\x73\x43\x6C\x61\x73\x73","\x68\x69\x64\x65\x32","\x72\x65\x6D\x6F\x76\x65\x43\x6C\x61\x73\x73","\x2E\x75\x72\x6C\x61\x6E\x75\x6E\x63\x69\x61\x6E\x74\x65","\x6F\x6E","\x73\x65\x65\x6B\x69\x6E\x67","\x63\x75\x72\x72\x65\x6E\x74\x54\x69\x6D\x65","\x73\x65\x65\x6B\x65\x64","\x70\x61\x75\x73\x65\x64","\x65\x6E\x64\x65\x64","\x6D\x69\x6D\x65\x74\x79\x70\x65","\x61\x74\x74\x72","\x76\x69\x64\x65\x6F\x2D\x75\x72\x6C","\x73\x72\x63","\x61\x64\x64\x43\x6C\x61\x73\x73","\x72\x65\x61\x64\x79"];$(document)[_0x161e[22]](function(){var _0x8760x1=$(_0x161e[0]);var _0x8760x2=videojs(_0x161e[1]);$(_0x161e[4])[_0x161e[3]]($(_0x161e[2]));_0x8760x2[_0x161e[11]](_0x161e[5],function(){if(_0x8760x2[_0x161e[7]](_0x161e[6])){$(_0x161e[10])[_0x161e[9]](_0x161e[8])}});_0x8760x2[_0x161e[11]](_0x161e[12],function(_0x8760x3){if(currentTime< _0x8760x2[_0x161e[13]]()&& _0x8760x2[_0x161e[7]](_0x161e[6])){_0x8760x2[_0x161e[13]](currentTime)}});_0x8760x2[_0x161e[11]](_0x161e[14],function(_0x8760x3){if(currentTime< _0x8760x2[_0x161e[13]]()&& _0x8760x2[_0x161e[7]](_0x161e[6])){_0x8760x2[_0x161e[13]](currentTime)}});setInterval(function(){if(!_0x8760x2[_0x161e[15]]()&& _0x8760x2[_0x161e[7]](_0x161e[6])){currentTime= _0x8760x2[_0x161e[13]]()}},1000);_0x8760x2[_0x161e[11]](_0x161e[16],function(){if(this[_0x161e[7]](_0x161e[6])){this[_0x161e[20]]({type:_0x8760x1[_0x161e[18]](_0x161e[17]),src:_0x8760x1[_0x161e[18]](_0x161e[19])});this[_0x161e[5]]();this[_0x161e[9]](_0x161e[6]);$(_0x161e[10])[_0x161e[21]](_0x161e[8])}})})
+$(document).ready(function(){
+    var videotag = $(&#39;.playads&#39;);
+		var myPlayer = videojs(&#39;video_1&#39;);
+  $(&quot;.moveToVideoJs&quot;).appendTo($(&#39;#video_1&#39;));
+		// show urlanunciante label while play urlanunciante
+		myPlayer.on(&#39;play&#39;, function() {
+	  		if(myPlayer.hasClass(&quot;playads&quot;)){
+		  		$(&#39;.urlanunciante&#39;).removeClass(&#39;hide2&#39;);
+			}
+		});
+		// Stop from seeking while playing urlanunciante
+		myPlayer.on(&quot;seeking&quot;, function(event) {
+      		if (currentTime &lt; myPlayer.currentTime() &amp;&amp; myPlayer.hasClass(&quot;playads&quot;)) {
+	        	myPlayer.currentTime(currentTime);
+	      	}
+	    });
+	    myPlayer.on(&quot;seeked&quot;, function(event) {
+	      	if (currentTime &lt; myPlayer.currentTime() &amp;&amp; myPlayer.hasClass(&quot;playads&quot;)) {
+	        	myPlayer.currentTime(currentTime);
+	      	}
+	    });
+	    setInterval(function() {
+	      	if (!myPlayer.paused() &amp;&amp; myPlayer.hasClass(&quot;playads&quot;)) {
+	        	currentTime = myPlayer.currentTime();
+	      	}
+    	}, 1000);
+		
+		// Hide2 urlanunciante label and change data-src of player to play actual video
+		myPlayer.on(&#39;ended&#39;, function() {
+	  		if(this.hasClass(&quot;playads&quot;)){
+          this.src({type: videotag.attr(&#39;mimetype&#39;), src: videotag.attr(&#39;video-url&#39;)});
+	  			this.play();
+		  		this.removeClass(&#39;playads&#39;);
+		  		$(&#39;.urlanunciante&#39;).addClass(&#39;hide2&#39;);
+			}
+		});
+});
